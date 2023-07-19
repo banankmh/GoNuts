@@ -6,7 +6,10 @@ import androidx.navigation.compose.composable
 import com.banan.gonuts.screens.Screens
 
 fun NavGraphBuilder.onBoardingRoute(navController: NavController){
-    composable(route = Screens.HomeScreen.route) {
+    composable(route = Screens.OnBoardingScreen.route) {
         OnBoardingScreen(navController = navController)
     }
+}
+fun NavController.navigateToOnBoarding() {
+    navigate(Screens.OnBoardingScreen.route)
 }
