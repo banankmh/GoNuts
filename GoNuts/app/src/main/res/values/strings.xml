@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Go Nuts</string>
+    <string name="favourite_icon">Favourite Icon</string>
+    <string name="floating_dounat">" Floating Dounat"</string>
 </resources>
