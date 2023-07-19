@@ -8,6 +8,7 @@ val Pink80 = Color(0xFFEFB8C8)
 
 val primary = Color(0xFFFF7074)
 val secondary = Color(0xFFFF9494)
+val background=Color(0XFFFED8DF)
 val onSecondary = Color(0xFFFED8DF)
 val onPrimary = Color(0xFFFFFFFF)
 val blackShade = Color(0xFF585858)

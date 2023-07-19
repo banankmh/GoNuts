@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'com.google.dagger.hilt.android'
 }
 
 android {
@@ -68,5 +70,22 @@ dependencies {
 
     /// constraint alpha
     implementation 'androidx.compose.material3:material3:1.2.0-alpha03'
+
+    /// navigation
+    implementation "androidx.navigation:navigation-fragment-ktx:2.6.0"
+    implementation "androidx.navigation:navigation-ui-ktx:2.6.0"
+
+    /// coroutine
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:"
+
+    /// hilt
+    implementation "com.google.dagger:hilt-android:2.46.1"
+    implementation 'androidx.hilt:hilt-navigation-compose:1.0.0'
+    kapt "com.google.dagger:hilt-android-compiler:2.46.1"
+
+    implementation "androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1"
+
+    implementation "com.google.accompanist:accompanist-systemuicontroller:0.31.0-alpha"
 
 }
