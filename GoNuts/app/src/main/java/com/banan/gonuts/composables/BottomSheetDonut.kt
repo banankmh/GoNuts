@@ -63,9 +63,9 @@ fun BottomSheetDonut(labelText:String,description:String){
         Spacer(modifier = Modifier.height(24.dp))
         Row(modifier = Modifier.fillMaxWidth()) {
             CounterDesign("-",{})
-            Spacer(modifier = Modifier.width(27.dp))
+            Spacer(modifier = Modifier.width(16.dp))
             CounterDesign("1",{})
-            Spacer(modifier = Modifier.width(27.dp))
+            Spacer(modifier = Modifier.width(16.dp))
             CounterDesign("+",{})
         }
     }

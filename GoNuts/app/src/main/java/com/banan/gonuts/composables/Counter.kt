@@ -5,6 +5,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -30,9 +31,10 @@ import com.banan.gonuts.ui.theme.primary
         Button(
             onClick = onClick,
             modifier = Modifier
-                .background(color = onPrimary, shape = RoundedCornerShape(15.dp))
+                .background(color = Color.White, shape = RoundedCornerShape(15.dp))
                 .padding(15.dp)
-                .shadow(elevation = 50.dp, spotColor = blackShade)
+                .size(45.dp)
+                .shadow(elevation = 50.dp, spotColor = blackShade, shape =RoundedCornerShape(15.dp) )
         ) {
             Text(
                 text = text,
