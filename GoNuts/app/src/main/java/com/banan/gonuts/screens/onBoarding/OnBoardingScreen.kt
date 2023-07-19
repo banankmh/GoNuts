@@ -46,9 +46,9 @@ fun OnBoardingContent(onClickToStart: () -> Unit){
                 contentDescription = " Group of Dounts",
                 modifier = Modifier
                     .matchParentSize()
-                    .rotate(20f)
+                    .rotate(25f)
                     .scale(1.7f, 1.7f)
-                    .offset(y = 40.dp, x = 17.dp)
+                    .offset(y = 70.dp, x = 17.dp)
             )
             Image(
                 painter = painterResource(id = R.drawable.donut_eaten),
@@ -56,7 +56,7 @@ fun OnBoardingContent(onClickToStart: () -> Unit){
                 modifier = Modifier
                     .align(Alignment.BottomEnd)
                     .scale(.9f)
-                    .offset(x = 90.dp, y = 232.dp)
+                    .offset(x = 96.dp, y = 232.dp)
             )
             Image(
                 painter = painterResource(id = R.drawable.donut_strawberry_3),
@@ -73,7 +73,7 @@ fun OnBoardingContent(onClickToStart: () -> Unit){
                     .scale(.4f)
                     .rotate(65f)
                     .align(Alignment.BottomStart)
-                    .offset(y = 120.dp, x = 80.dp)
+                    .offset(y = 120.dp, x = 10.dp)
             )
             Image(
                 painter = painterResource(id = R.drawable.donut_move),
