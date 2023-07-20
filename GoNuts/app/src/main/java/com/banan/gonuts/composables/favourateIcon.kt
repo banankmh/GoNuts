@@ -1,7 +1,6 @@
 package com.banan.gonuts.composables
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
@@ -18,7 +17,7 @@ import com.banan.gonuts.ui.theme.primary
 @Composable
 fun IconFavourite(modifier: Modifier=Modifier){
     Icon(
-        painter = painterResource(id = R.drawable.ic_heart),
+        painter = painterResource(id = R.drawable.ic_fav),
         contentDescription = stringResource(R.string.favourite_icon),
         modifier = modifier
             .background(color = onPrimary, shape = CircleShape)

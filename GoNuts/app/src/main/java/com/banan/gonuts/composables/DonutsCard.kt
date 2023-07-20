@@ -27,6 +27,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.banan.gonuts.R
+import com.banan.gonuts.screens.home.DunantsUiState
 import com.banan.gonuts.ui.theme.Typography
 import com.banan.gonuts.ui.theme.onBackground60
 import com.banan.gonuts.ui.theme.onPrimary
@@ -34,9 +35,7 @@ import com.banan.gonuts.ui.theme.onSecondary
 
 @Composable
 fun DonutsCard(
-    name: String,
-    price: Int,
-    image: Painter
+    state: DunantsUiState = DunantsUiState(),
 ){
     Box(
         modifier = Modifier
@@ -50,7 +49,7 @@ fun DonutsCard(
                 .height(158.dp)
                 .padding(top = 32.dp)
                 .background(
-                    color = onPrimary,shape = RoundedCornerShape(
+                    color = onPrimary, shape = RoundedCornerShape(
                         topStart = 20.dp, topEnd = 20.dp, bottomEnd = 10.dp, bottomStart = 10.dp
                     )
                 )
@@ -60,7 +59,7 @@ fun DonutsCard(
 
         ){
             Text(
-                text = name,
+                text = state.donatName,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis,
                 style = Typography.labelSmall,
@@ -70,32 +69,29 @@ fun DonutsCard(
                     .padding(bottom = 10.dp)
             )
             Text(
-                text = "$$price",
+                text = "$${state.price}",
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis,
                 style = Typography.titleSmall,
                 textAlign = TextAlign.Center,
                 modifier = Modifier
                     .align(Alignment.CenterHorizontally)
-                  .padding(bottom=20.dp)
+                    .padding(bottom = 20.dp)
             )
         }
         Image(
-            painter = image,
+            painter = painterResource(id = state.donatImage),
             contentDescription = stringResource(R.string.floating_dounat),
             modifier = Modifier
-                .scale(.9f).width(120.dp)
+                .scale(.9f)
+                .width(120.dp)
                 .graphicsLayer {
                     translationX = 30f
-                    translationY =-70f
+                    translationY = -70f
                 }
         )
     }
 
 }
 
-@Preview (showSystemUi = true)
-@Composable
-fun DonutsPreview(){
-    DonutsCard("Chocolate Cherry",16, painterResource(id = R.drawable.donut_strawberry_1))
-}
+

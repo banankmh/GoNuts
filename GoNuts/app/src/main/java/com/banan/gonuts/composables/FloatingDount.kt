@@ -20,11 +20,11 @@ import com.banan.gonuts.R
 @Preview
 @Composable
 fun FloatingDonut(
-    image: Painter = painterResource(id = R.drawable.donut_chocolate_1),
+    image: Int = R.drawable.donut_chocolate_1,
     modifier: Modifier = Modifier
 ) {
     Image(
-        painter = image,
+        painter =painterResource(id=image) ,
         contentDescription = stringResource(R.string.floating_dounat),
         modifier = modifier
             .fillMaxWidth()

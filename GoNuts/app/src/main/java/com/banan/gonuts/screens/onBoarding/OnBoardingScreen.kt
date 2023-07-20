@@ -26,8 +26,8 @@ import androidx.navigation.NavController
 import com.banan.gonuts.R
 import com.banan.gonuts.screens.home.navigateToHome
 import com.banan.gonuts.ui.theme.Typography
-import com.banan.gonuts.ui.theme.background
 import com.banan.gonuts.ui.theme.onPrimary
+import com.banan.gonuts.ui.theme.onSecondary
 
 
 @Composable
@@ -39,7 +39,7 @@ fun OnBoardingScreen(navController: NavController,){
 fun OnBoardingContent(onClickToStart: () -> Unit){
     Box( modifier = Modifier
         .fillMaxSize()
-        .background(color = background)) {
+        .background(color = onSecondary)) {
         Box(modifier = Modifier.fillMaxWidth()) {
             Image(
                 painter = painterResource(id = R.drawable.donut_group),
@@ -101,7 +101,7 @@ fun OnBoardingContent(onClickToStart: () -> Unit){
             )
             Spacer(modifier = Modifier.height(20.dp))
             Button(
-                onClick = { onClickToStart }, modifier = Modifier
+                onClick = { onClickToStart() }, modifier = Modifier
                     .height(54.dp)
                     .fillMaxWidth(),
                 colors=ButtonDefaults.buttonColors(containerColor = onPrimary)

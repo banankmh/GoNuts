@@ -3,4 +3,10 @@
     <string name="favourite_icon">Favourite Icon</string>
     <string name="floating_dounat">" Floating Dounat"</string>
     <string name="getstarted">GetStarted</string>
+    <string name="order_your_favourite_donuts_from_here">Order your favourite donuts from here</string>
+    <string name="let_s_gonuts">Let’s Gonuts!</string>
+    <string name="about_gonut">About Gonut</string>
+    <string name="description">These soft, cake-like Strawberry Frosted Donuts feature fresh strawberries and a delicious fresh strawberry glaze frosting. Pretty enough for company and the perfect treat to satisfy your sweet tooth.</string>
+    <string name="add_to_cart">Add to Cart\n</string>
+    <string name="today_offers">Today Offers</string>
 </resources>

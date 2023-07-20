@@ -10,6 +10,7 @@ fun NavGraphBuilder.homeRoute(navController: NavController){
        HomeScreen(navController = navController)
     }
 }
+
 fun NavController.navigateToHome() {
     navigate(Screens.HomeScreen.route)
 }
