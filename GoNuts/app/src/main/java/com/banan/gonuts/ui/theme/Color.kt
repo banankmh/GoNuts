@@ -16,6 +16,7 @@ val onBackground60 = Color(0x99000000)
 val onBackground80 = Color(0x99000000)
 val blueSky = Color(0xFFD7E4F6)
 val onBackground30 = Color(0x4D121212)
+val onPrimary87 = Color(0xDEFFFFFF)
 
 val Purple40 = Color(0xFF6650a4)
 val PurpleGrey40 = Color(0xFF625b71)

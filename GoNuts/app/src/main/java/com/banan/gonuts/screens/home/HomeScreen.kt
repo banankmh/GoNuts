@@ -1,104 +1,69 @@
-package com.banan.gonuts.screens.home
+package com.chocolate.dountsapp.screens.home
 
-import android.annotation.SuppressLint
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
+import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
-import androidx.compose.ui.Alignment
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.navigation.NavController
-import com.banan.gonuts.R
-import com.banan.gonuts.screens.BottomNavigationBar
-import com.banan.gonuts.ui.theme.Typography
-import com.banan.gonuts.ui.theme.onBackground60
-import com.banan.gonuts.ui.theme.onSecondary
-import com.banan.gonuts.ui.theme.primary
-import com.banan.gonuts.ui.theme.secondary
+import com.banan.gonuts.composables.BottomAppBarRow
+import com.banan.gonuts.composables.DonutsCard
+import com.banan.gonuts.composables.OffersDountCard
+import com.banan.gonuts.composables.WelcomeHeader
+import com.banan.gonuts.screens.Screens
+import com.banan.gonuts.ui.theme.onPrimary87
+import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 @Composable
-fun HomeScreen(
-    navController: NavController,
-   viewModel: HomeViewModel = hiltViewModel(),
-) {
-    val state by viewModel.state.collectAsState()
-    HomeContent(onClickToDetails ={}, navController =navController,  state = state)
-}
-
-@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-fun HomeContent(
-    state: HomeUiState,
-    onClickToDetails: () -> Unit,
-    navController: NavController
-) {
-    Scaffold(bottomBar = {
-        BottomNavigationBar(navController = navController)
-    }) {
-        Column(
-            modifier = Modifier
-                .verticalScroll(rememberScrollState())
-                .padding(bottom = 24.dp)
-        ) {
-            Row(
-                horizontalArrangement = Arrangement.SpaceBetween,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 20.dp)
-                    .padding(top = 20.dp),
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Column {
-                    Text(
-                        text = stringResource(R.string.let_s_gonuts),
-                        style = Typography.labelLarge,
-                    )
-                    Text(
-                        text = stringResource(R.string.order_your_favourite_donuts_from_here),
-                        style = Typography.labelSmall,
-                        color = onBackground60
-                    )
-                }
-                IconButton(
-                    onClick = {},
-                    modifier = Modifier
-                        .size(45.dp)
-                        .background(shape = RoundedCornerShape(15.dp), color = onSecondary)
-                        .clip(RoundedCornerShape(15.dp)),
-                ){
-                    Icon(
-                        painter = painterResource(id = R.drawable.ic_search),
-                        contentDescription ="Search",
-                        tint = primary
-                    )
-                }
-                Spacer(modifier = Modifier.height(20.dp))
-                DonutsOffers(state.offersDonut, onClick = onClickToDetails)
-                Donuts(state.donuts)
-        }
+fun HomeScreen(navController: NavController) {
+    val systemUiController = rememberSystemUiController()
+    val useDarkIcons = !isSystemInDarkTheme()
+    DisposableEffect(systemUiController, useDarkIcons) {
+        systemUiController.setSystemBarsColor(color = Color.Transparent, darkIcons = useDarkIcons)
+        onDispose {
+            // Restore the default system bars color when the composable is disposed
+            systemUiController.setSystemBarsColor(color = Color.Transparent, darkIcons = useDarkIcons)
         }
     }
-}
 
+    ConstraintLayout(
+        modifier = Modifier
+            .fillMaxSize()
+    ) {
+        val (columnScreen, bottomBar) = createRefs()
+        LazyColumn(
+            Modifier
+                .background(color = onPrimary87)
+                .fillMaxSize()
+                .constrainAs(columnScreen) {
+                    top.linkTo(parent.top)
+                    bottom.linkTo(parent.bottom)
+                    start.linkTo(parent.start)
+                    end.linkTo(parent.end)
+                },
+            contentPadding = PaddingValues(vertical = 16.dp)
+        ) {
+            item {
+                WelcomeHeader()
+            }
+            item{
+                OffersDountCard(onClickToDetails = { navController.navigate(Screens.DetailsScreen.route) })
+            }
+            item {
+                DonutsCard()
+            }
+        }
+
+        BottomAppBarRow(modifier = Modifier.constrainAs(bottomBar) {
+            bottom.linkTo(parent.bottom)
+            start.linkTo(parent.start)
+            end.linkTo(parent.end)
+        })
+    }
+}
