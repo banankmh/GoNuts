@@ -17,10 +17,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.banan.gonuts.R
 
-@Preview
+
 @Composable
 fun FloatingDonut(
-    image: Int = R.drawable.donut_chocolate_1,
+    image: Int,
     modifier: Modifier = Modifier
 ) {
     Image(
@@ -28,10 +28,10 @@ fun FloatingDonut(
         contentDescription = stringResource(R.string.floating_dounat),
         modifier = modifier
             .fillMaxWidth()
-            .scale(3f)
+            .scale(2f)
             .graphicsLayer {
-                translationX = 90f
-                translationY = 70f
+                translationX = 110f
+                translationY = 40f
             }
     )
 }

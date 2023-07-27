@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "975897382387",
+    "project_id": "roomsession-19d0a",
+    "storage_bucket": "roomsession-19d0a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:975897382387:android:7ad230bf03c03946451686",
+        "android_client_info": {
+          "package_name": "com.banan.roomsession"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "975897382387-hgkcpqvoh0nnlgtgilc889jehh48e9gn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAAdAJbCUd0CsQNKpE2WvXArSbdJvGmsfY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "975897382387-hgkcpqvoh0nnlgtgilc889jehh48e9gn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

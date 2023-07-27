@@ -11,16 +11,18 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
 import com.banan.gonuts.R
+import com.banan.gonuts.ui.theme.onSecondary
 import com.banan.gonuts.ui.theme.secondary
-
+@Preview
 @Composable
 fun HeaderDetails(modifier: Modifier = Modifier) {
     Column(
         modifier
             .fillMaxWidth()
             .fillMaxHeight(.5f)
-            .background(color = secondary),
+            .background(color = onSecondary),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {

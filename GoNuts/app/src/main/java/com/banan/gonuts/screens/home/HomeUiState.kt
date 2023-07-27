@@ -9,7 +9,7 @@ data class OffersDonutUiState(
     val donatName: String = "",
     val donatDescription: String = "",
     val donatImage: Int = 0,
-    val origin: Float = 0f,
+    val origin: Int = 16,
     val copun: Float = 0f,
     var quantity:Int= 1,
 )
@@ -18,5 +18,5 @@ data class DunantsUiState(
     val donatImage: Int = 0,
     val donatName: String = "",
     val donatDescription: String="",
-    val price: Float =0f,
+    val price: Float =1f,
 )

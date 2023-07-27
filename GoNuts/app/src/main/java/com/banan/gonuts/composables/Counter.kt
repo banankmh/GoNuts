@@ -32,7 +32,7 @@ import com.banan.gonuts.ui.theme.onPrimary
         quantity: Int = 1,
     ) {
         Row(
-            modifier = Modifier.padding(top = 16.dp),
+            modifier = Modifier.padding(top = 8.dp),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(16.dp)
         ) {

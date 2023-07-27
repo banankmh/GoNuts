@@ -17,6 +17,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.banan.gonuts.R
+import com.banan.gonuts.ui.theme.Typography
+import com.banan.gonuts.ui.theme.onPrimary
 import com.banan.gonuts.ui.theme.primary
 
 
@@ -31,12 +33,9 @@ fun AddToCart(){
 
     ) {
         Text(
-            text = stringResource(R.string.add_to_cart),
-            color = Color.White,
-            fontFamily = FontFamily(Font(R.font.inter_regular)),
-            fontSize = 16.sp,
-            fontWeight = FontWeight.SemiBold,
-            modifier = Modifier.padding()
+            text = "Add to cart",
+            style = Typography.titleSmall,
+            color = onPrimary
         )
     }
 }

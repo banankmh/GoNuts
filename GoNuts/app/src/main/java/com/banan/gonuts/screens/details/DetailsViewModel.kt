@@ -16,11 +16,11 @@ class DetailsViewModel @Inject constructor() : ViewModel() {
 
 
     fun increaseQuantity() {
-        if (state.value.origin < 16) {
+        if (state.value.origin >=0) {
             _state.update {
                 it.copy(
                         quantity = (it.quantity + 1),
-                        origin = (it.origin * 2f)
+                        origin = (it.origin* it.quantity)
                     )
 
             }

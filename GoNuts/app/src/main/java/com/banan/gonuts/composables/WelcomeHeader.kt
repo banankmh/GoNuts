@@ -24,24 +24,26 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.banan.gonuts.ui.theme.onSecondary
 import com.banan.gonuts.ui.theme.secondary
 
-
+@Preview(showSystemUi = true)
 @Composable
 fun WelcomeHeader() {
     Row(
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier
-            .padding(top = 48.dp, start = 32.dp, end = 32.dp)
+            .padding(top = 32.dp, start = 32.dp,end=32.dp)
             .fillMaxWidth()
     ) {
         Column {
             Text(
                 text = stringResource(R.string.let_s_gonuts),
-                style = Typography.titleLarge ,
+                style = Typography.labelLarge ,
             )
             Text(
                 text = stringResource(R.string.order_your_favourite_donuts_from_here),
@@ -54,7 +56,7 @@ fun WelcomeHeader() {
             modifier = Modifier
                 .clip(RoundedCornerShape(16.dp))
                 .clickable { }
-                .background(secondary)
+                .background(onSecondary)
                 .padding(12.dp)
         )
     }

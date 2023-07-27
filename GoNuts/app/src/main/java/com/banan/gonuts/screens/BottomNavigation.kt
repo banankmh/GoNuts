@@ -15,42 +15,42 @@ import com.banan.gonuts.R
 import com.banan.gonuts.ui.theme.onPrimary
 import com.banan.gonuts.ui.theme.primary
 
-@Composable
-fun BottomNavigationBar(navController: NavController) {
-
-    val items = listOf(
-        Screens.HomeScreen,
-        Screens.FavouriteScreen,
-        Screens.NotificationScreen,
-        Screens.CartScreen,
-        Screens.ProfileScreen
-    )
-    BottomNavigation(
-        backgroundColor = onPrimary,
-        contentColor = primary
-    ) {
-        val navBackStackEntry by navController.currentBackStackEntryAsState()
-        val currentRoute = navBackStackEntry?.destination?.route
-        items.forEach { item ->
-            BottomNavigationItem(
-                icon = { Icon(painterResource(id = item.icon), contentDescription = "") },
-                selectedContentColor = primary,
-                alwaysShowLabel = true,
-                selected = currentRoute == item.route,
-                onClick = {
-                    navController.navigate(item.route) {
-
-                        navController.graph.startDestinationRoute?.let { screen_route ->
-                            popUpTo(screen_route) {
-                                saveState = true
-                            }
-                        }
-                        launchSingleTop = true
-                        restoreState = true
-                    }
-                }
-            )
-        }
-    }
-}
+//@Composable
+//fun BottomNavigationBar(navController: NavController) {
+//
+//    val items = listOf(
+//        Screens.HomeScreen,
+//        Screens.FavouriteScreen,
+//        Screens.NotificationScreen,
+//        Screens.CartScreen,
+//        Screens.ProfileScreen
+//    )
+//    BottomNavigation(
+//        backgroundColor = onPrimary,
+//        contentColor = primary
+//    ) {
+//        val navBackStackEntry by navController.currentBackStackEntryAsState()
+//        val currentRoute = navBackStackEntry?.destination?.route
+//        items.forEach { item ->
+//            BottomNavigationItem(
+//                icon = { Icon(painterResource(id = item.icon), contentDescription = "") },
+//                selectedContentColor = primary,
+//                alwaysShowLabel = true,
+//                selected = currentRoute == item.route,
+//                onClick = {
+//                    navController.navigate(item.route) {
+//
+//                        navController.graph.startDestinationRoute?.let { screen_route ->
+//                            popUpTo(screen_route) {
+//                                saveState = true
+//                            }
+//                        }
+//                        launchSingleTop = true
+//                        restoreState = true
+//                    }
+//                }
+//            )
+//        }
+//    }
+//}
 

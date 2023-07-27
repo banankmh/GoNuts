@@ -3,53 +3,55 @@ package com.banan.gonuts.screens.details
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.Color.Companion.Black
 import androidx.compose.ui.graphics.Color.Companion.White
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.Font
-import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.banan.gonuts.R
-import com.google.accompanist.systemuicontroller.rememberSystemUiController
+import com.banan.gonuts.composables.ButtonItem
+import com.banan.gonuts.composables.CounterDesign
+import com.banan.gonuts.ui.theme.Typography
+import com.banan.gonuts.ui.theme.onPrimary
+import com.banan.gonuts.ui.theme.primary
 
 @Composable
-fun DetailsScreen(navController: NavController) {
-    val systemUiController = rememberSystemUiController()
-    val useDarkIcons = !isSystemInDarkTheme()
-    DisposableEffect(systemUiController, useDarkIcons) {
-        systemUiController.setSystemBarsColor(color = Color.Transparent, darkIcons = useDarkIcons)
-        onDispose {
-            systemUiController.setSystemBarsColor(
-                color = Color.Transparent,
-                darkIcons = useDarkIcons
-            )
-        }
-    }
+fun DetailsScreen(navController: NavController,viewModel: DetailsViewModel = hiltViewModel()) {
+    val state by viewModel.state.collectAsState()
+
+//    val systemUiController = rememberSystemUiController()
+//    val useDarkIcons = !isSystemInDarkTheme()
+//    DisposableEffect(systemUiController, useDarkIcons) {
+//        systemUiController.setSystemBarsColor(color = Color.Transparent, darkIcons = useDarkIcons)
+//        onDispose {
+//            systemUiController.setSystemBarsColor(
+//                color = Color.Transparent,
+//                darkIcons = useDarkIcons
+//            )
+//        }
+//    }
+
+
     Box(modifier = Modifier.fillMaxSize()) {
         HeaderDetails()
         Box(
@@ -62,21 +64,24 @@ fun DetailsScreen(navController: NavController) {
                 Modifier
                     .clip(RoundedCornerShape(topStart = 40.dp, topEnd = 40.dp))
                     .fillMaxWidth()
-                    .fillMaxHeight(.88f)
-                    .background(color = Color.White)
+                    .fillMaxHeight()
+                    .background(color = White)
                     .align(Alignment.BottomCenter)
-                    .padding(top = 35.dp, start = 40.dp, end = 40.dp)
+                    .padding(top = 48.dp, start = 40.dp, end = 40.dp)
             ) {
                 TextDetails()
                 Row(
                     horizontalArrangement = Arrangement.spacedBy(20.dp),
                     modifier = Modifier.padding(top = 20.dp)
                 ) {
-                    ClickAddAndMinus(stringResource(R.string.minus), Black, Color.White, 32)
-                    ClickAddAndMinus(stringResource(R.string._1), Black, Color.White, 22)
-                    ClickAddAndMinus(stringResource(R.string.plus), Color.White, Color.Black, 32)
+                    CounterDesign(
+                        onClickPlus = viewModel::increaseQuantity,
+                        onClickMinus =  viewModel::decreaseQuantity,
+                        quantity = if (state.quantity > 16) 0 else state.quantity
+                    )
+
                 }
-                Box(Modifier.weight(1f)) {
+                Box() {
                     Row(
                         verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.SpaceBetween,
@@ -84,14 +89,20 @@ fun DetailsScreen(navController: NavController) {
                             .fillMaxSize()
                     ) {
                         Text(
-                            text = stringResource(R.string._16_),
-                            color = Black,
-                            fontFamily = FontFamily(Font(R.font.inter_regular)),
-                            fontSize = 30.sp,
-                            fontWeight = FontWeight.SemiBold
+                            text = "£${state.origin}",
+                            style = Typography.titleMedium,
                         )
-                        Spacer(modifier = Modifier.width(16.dp))
-                        AddToCart()
+
+//                        AddToCart()
+
+                        ButtonItem(
+                            text = stringResource(R.string.add_to_cart),
+                            onClick = {},
+                            backgroundColor = primary,
+                            textColor = onPrimary,
+                            modifier = Modifier.padding(8.dp)
+                        )
+
                     }
                 }
             }

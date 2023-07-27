@@ -38,7 +38,7 @@ fun DonutsOffers(
             .padding(vertical = 8.dp),
         verticalAlignment = Alignment.CenterVertically,
         contentPadding = PaddingValues(start = 16.dp, end = 16.dp),
-        horizontalArrangement = Arrangement.spacedBy(4.dp)
+        horizontalArrangement = Arrangement.spacedBy(56.dp)
     ) {
         itemsIndexed(items = offers) { position, items ->
             val backgroundColor = if (position % 2 == 0) blueSky  else onSecondary

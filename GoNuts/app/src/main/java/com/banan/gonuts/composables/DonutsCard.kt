@@ -83,7 +83,7 @@ fun DonutsCard(
             painter = painterResource(id = state.donatImage),
             contentDescription = stringResource(R.string.floating_dounat),
             modifier = Modifier
-                .scale(.9f)
+                .scale(.15f)
                 .width(120.dp)
                 .graphicsLayer {
                     translationX = 30f

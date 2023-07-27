@@ -4,7 +4,7 @@
     <string name="floating_dounat">" Floating Dounat"</string>
     <string name="getstarted">GetStarted</string>
     <string name="order_your_favourite_donuts_from_here">Order your favourite donuts from here</string>
-    <string name="let_s_gonuts">Let’s Gonuts!</string>
+    <string name="let_s_gonuts">Let’sGonuts!</string>
     <string name="about_gonut">About Gonut</string>
     <string name="description">These soft, cake-like Strawberry Frosted Donuts feature fresh strawberries and a delicious fresh strawberry glaze frosting. Pretty enough for company and the perfect treat to satisfy your sweet tooth.</string>
     <string name="add_to_cart">Add to Cart\n</string>
@@ -12,7 +12,8 @@
     <string name="group_of_dounts">" Group of Dounts"</string>
     <string name="strawberry_topic">Strawberry topic</string>
     <string name="strawberry_wheel">Strawbary Wheel\n</string>
-    <string name="these_soft_cake">These Soft cake\n</string>
+    <string name="these_soft_cake">These Soft cake These soft, cake-like Strawberry Frosted Donuts feature fresh strawberries and a delicious fresh strawberry glaze frosting.
+        Pretty enough for company and the perfect treat to satisfy your sweet tooth.</string>
     <string name="quantity">Quantity\n</string>
     <string name="minus">minus\n</string>
     <string name="_1">1\n</string>

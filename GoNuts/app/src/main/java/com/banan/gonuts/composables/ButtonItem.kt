@@ -1,7 +1,9 @@
 package com.banan.gonuts.composables
 
+import androidx.compose.foundation.layout.calculateStartPadding
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -19,10 +21,8 @@ fun ButtonItem(text : String, modifier: Modifier = Modifier, onClick:() -> Unit,
     Button(
         onClick = onClick,
         colors = ButtonDefaults.buttonColors(containerColor = backgroundColor),
-        modifier = modifier
-            .height(54.dp)
-            .fillMaxWidth(),
-        shape = RoundedCornerShape(50.dp)
+        modifier = modifier.fillMaxWidth(),
+        contentPadding=ButtonDefaults.ContentPadding
     ){
         Text(
             text = text,

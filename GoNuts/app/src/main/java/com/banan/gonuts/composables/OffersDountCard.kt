@@ -28,32 +28,31 @@ import com.banan.gonuts.R
 import com.banan.gonuts.screens.home.OffersDonutUiState
 import com.banan.gonuts.ui.theme.Typography
 import com.banan.gonuts.ui.theme.blueSky
-
+@Preview(showSystemUi = true)
 @Composable
 fun OffersDountCard(
     state: OffersDonutUiState = OffersDonutUiState(),
     backgroundColor: Color = blueSky,
-    onClickToDetails: () -> Unit,
+    onClickToDetails: () -> Unit ={},
 
 ) {
     Box(
         modifier = Modifier
             .wrapContentWidth()
             .height(280.dp)
-
     ) {
         Column(
             modifier = Modifier
                 .width(193.dp)
                 .height(320.dp)
                 .clickable(onClick = onClickToDetails)
-                .background(color = backgroundColor, shape = RoundedCornerShape(20))
+                .background(color = backgroundColor, shape = RoundedCornerShape(15))
                 .wrapContentHeight()
                 .padding(15.dp),
             horizontalAlignment = Alignment.Start
         ) {
             FloatingDonut(image=state.donatImage)
-            Spacer(modifier = Modifier.weight(1f))
+            Spacer(modifier = Modifier.weight(3.5f))
             Text(
                 text = state.donatName,
                 maxLines = 1,
